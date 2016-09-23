@@ -96,4 +96,12 @@ public class StylistTest {
     Client[] clients = new Client[] { client, clientTwo };
     assertTrue(stylist.getClients().containsAll(Arrays.asList(clients)));
   }
+
+  @Test
+  public void update_updatesStylist_true() {
+    Stylist stylist = new Stylist("Sue", "sue82@gmail.com", "888-328-3232", "MTWThF", "long hair");
+    stylist.save();
+    stylist.update("Sue", "sue82@gmail.com", "555-555-3232", "MTWThFS", "long hair", stylist.getId());
+    assertEquals(Stylist.find(stylist.getId()).getPhone(), "555-555-3232");
+  }
 }

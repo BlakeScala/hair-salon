@@ -97,4 +97,18 @@ public class Stylist {
         .executeAndFetch(Client.class);
     }
   }
+
+  public void update(String name, String email, String phone, String availability, String speciality, int id) {
+    try (Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE stylists SET name = :name, email = :email, phone = :phone, availability= :availability, speciality= :speciality WHERE id = :id";
+      con.createQuery(sql)
+        .addParameter("name", name)
+        .addParameter("email", email)
+        .addParameter("phone", phone)
+        .addParameter("availability", availability)
+        .addParameter("speciality", speciality)
+        .addParameter("id", id)
+        .executeUpdate();
+    }
+  }
 }
