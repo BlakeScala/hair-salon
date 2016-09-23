@@ -24,6 +24,7 @@
   <p>Phone: $stylist.getPhone() <br>Email: $stylist.getEmail() <br>Availability: $stylist.getAvailability() <br> Speciality: $stylist.getSpeciality()</p>
 </div>
 
+<h1>Clients</h1>
 #foreach ($client in $clients)
   <div class = "client-div">
     <h3><a href="stylist/$stylist.getId()/client/$client.getId()">$client.getName()</a></h3>

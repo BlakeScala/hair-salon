@@ -1,0 +1,19 @@
+<div class="jumbotron">
+  <h1>Hair Salon Handler</h1>
+  <p>Keep your stylists and clients organized!</p>
+  <form action="/">
+    <button type="submit" class="btn">Home</button>
+  </form>
+
+  <form action="/stylist/$stylist.getId()">
+    <button type="submit" class="btn">Back to Stylist's Page</button>
+  </form>
+
+  <form action="/stylist/$stylist.getId()/client/$client.getId()/delete">
+    <button type="submit" class="btn">Delete Client</button>
+  </form>
+
+  <form action="/stylist/$stylist.getId()/client/$client.getId()/update">
+    <button type="submit" class="btn">Update Client</button>
+  </form>
+</div>
