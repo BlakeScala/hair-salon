@@ -13,5 +13,10 @@ public class StylistTest {
   Stylist stylist = new Stylist("Sue", "sue82@gmail.com", "888-328-3232", "MTWThF", "long hair");
   assertEquals(true, stylist instanceof Stylist);
   }
-  
+
+  @Test
+  public void getName_returnsName_true() {
+    Stylist stylist = new Stylist("Sue", "sue82@gmail.com", "888-328-3232", "MTWThF", "long hair");
+    assertEquals("Sue", stylist.getName());
+  }
 }
