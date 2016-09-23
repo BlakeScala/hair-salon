@@ -17,6 +17,10 @@ public class Client {
     this.stylist_id = stylist_id;
   }
 
+  public int getId() {
+    return id;
+  }
+
   public String getName() {
     return name;
   }
@@ -63,6 +67,16 @@ public class Client {
         .addParameter("stylist_id", this.stylist_id)
         .executeUpdate()
         .getKey();
+    }
+  }
+
+  public static Client find(int id) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT * FROM clients WHERE id=:id";
+      Client client = con.createQuery(sql)
+        .addParameter("id", id)
+        .executeAndFetchFirst(Client.class);
+      return client;
     }
   }
 }
