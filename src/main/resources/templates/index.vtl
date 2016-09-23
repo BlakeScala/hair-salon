@@ -1,0 +1,13 @@
+<div class="jumbotron">
+  <h1>Hair Salon Handler</h1>
+  <p>Keep your stylists and clients organized!</p>
+  <form action="/add-stylist">
+    <button type="submit" class="btn">Add Stylist</button>
+  </form>
+</div>
+#foreach ($stylist in $stylists)
+  <div class="stylist-div">
+    <h3>$stylist.getName()</h3>
+    <p>Phone: $stylist.getPhone() <br>Email: $stylist.getEmail() <br>Availability: $stylist.getAvailability() <br> Speciality: $stylist.getSpeciality()</p>
+  </div>
+#end
