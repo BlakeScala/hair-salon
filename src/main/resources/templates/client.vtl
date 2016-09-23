@@ -8,12 +8,21 @@
   <form action="/stylist/$stylist.getId()">
     <button type="submit" class="btn">Back to Stylist's Page</button>
   </form>
-
-  <form action="/stylist/$stylist.getId()/client/$client.getId()/delete">
-    <button type="submit" class="btn">Delete Client</button>
-  </form>
-
-  <form action="/stylist/$stylist.getId()/client/$client.getId()/update">
-    <button type="submit" class="btn">Update Client</button>
-  </form>
 </div>
+
+
+<h1>$client.getName()</h1>
+<ul>
+  <li>Phone: $client.getPhone()</li>
+  <li>Email: $client.getEmail()</li>
+  <li>Phone: $client.getPhone()</li>
+  <li>Client of $stylist.getName()</li>
+</ul>
+
+<form action="/stylist/$stylist.getId()/client/$client.getId()/delete" method="post">
+  <button type="submit" class="btn">Delete Client</button>
+</form>
+
+<form action="/stylist/$stylist.getId()/client/$client.getId()/update">
+  <button type="submit" class="btn">Update Client</button>
+</form>

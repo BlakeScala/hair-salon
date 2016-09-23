@@ -1,0 +1,31 @@
+<div class="jumbotron">
+  <h1>Hair Salon Handler</h1>
+  <p>Keep your stylists and clients organized!</p>
+  <form action="/">
+    <button type="submit" class="btn">Home</button>
+  </form>
+</div>
+
+<h1>$client.getName()</h1>
+<ul>
+  <li>Phone: $client.getPhone()</li>
+  <li>Email: $client.getEmail()</li>
+  <li>Phone: $client.getPhone()</li>
+</ul>
+
+<h1>Update Client</h1>
+<form action="/stylist/$stylist.getId()/client/$client.getId()/update/success" method="post">
+  <div class="form-group">
+    <label for="name">Client Name</label>
+    <input id="name" name="name" type="text">
+  </div>
+  <div class="form-group">
+    <label for="email">EMail</label>
+    <input id="email" name="email" type="text">
+  </div>
+  <div class="form-group">
+    <label for="phone">Phone</label>
+    <input id="phone" name="phone" type="text">
+  </div>
+  <button type="submit" class="btn btn-success">Update Client</button>
+</form>
