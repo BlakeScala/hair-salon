@@ -38,4 +38,11 @@ public class ClientTest {
     Client client = new Client("Cindy", "878-484-2947", "cindyt@gmail.com", 1);
     assertEquals(client.getStylistId(), 1);
   }
+
+  @Test
+  public void equals_returnsTrueIfAttributesAreTheSame() {
+    Client client = new Client("Cindy", "878-484-2947", "cindyt@gmail.com", 1);
+    Client clientTwo = new Client("Cindy", "878-484-2947", "cindyt@gmail.com", 1);
+    assertTrue(client.equals(clientTwo));
+  }
 }

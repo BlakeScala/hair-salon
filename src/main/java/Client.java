@@ -32,4 +32,17 @@ public class Client {
   public int getStylistId() {
     return stylistId;
   }
+
+  @Override
+  public boolean equals(Object otherClient) {
+    if (!(otherClient instanceof Client)) {
+      return false;
+    } else {
+      Client newClient = (Client) otherClient;
+      return this.getName().equals(newClient.getName()) &&
+             this.getEmail().equals(newClient.getEmail()) &&
+             this.getPhone().equals(newClient.getPhone()) &&
+             this.getStylistId() == newClient.getStylistId();
+    }
+  }
 }
