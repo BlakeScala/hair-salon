@@ -84,4 +84,16 @@ public class StylistTest {
     stylistTwo.save();
     assertTrue(Stylist.find(stylistTwo.getId()).equals(stylistTwo));
   }
+
+  @Test
+  public void getClients_returnsAllClients() {
+    Stylist stylist = new Stylist("Sue", "sue82@gmail.com", "888-328-3232", "MTWThF", "long hair");
+    stylist.save();
+    Client client = new Client("Jim", "724-373-2729", "jimmyjim@gmail.com", stylist.getId());
+    Client clientTwo = new Client("Billy", "878-224-9237", "billy@gmail.com", stylist.getId());
+    client.save();
+    clientTwo.save();
+    Client[] clients = new Client[] { client, clientTwo };
+    assertTrue(stylist.getClients().containsAll(Arrays.asList(clients)));
+  }
 }
