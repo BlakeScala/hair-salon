@@ -9,9 +9,18 @@ public class Stylist {
   private String phone;
   private String availability;
   private String speciality;
+  private List<Client> clients;
 
   public Stylist(String name, String email, String phone, String availability, String speciality) {
-    
+    this.name = name;
+    this.email = email;
+    this.phone = phone;
+    this.availability = availability;
+    this.speciality = speciality;
+    clients = new ArrayList<Client>();
   }
 
+  public String getName() {
+    return name;
+  }
 }
