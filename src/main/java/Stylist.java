@@ -35,4 +35,8 @@ public class Stylist {
   public String getAvailability() {
     return availability;
   }
+
+  public String getSpeciality() {
+    return speciality;
+  }
 }

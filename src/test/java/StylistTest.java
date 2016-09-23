@@ -33,8 +33,14 @@ public class StylistTest {
   }
 
   @Test
-  public void getAvailability_returnsAva_true() {
+  public void getAvailability_returnsAvailability_true() {
     Stylist stylist = new Stylist("Sue", "sue82@gmail.com", "888-328-3232", "MTWThF", "long hair");
     assertEquals("MTWThF", stylist.getAvailability());
+  }
+
+  @Test
+  public void getSpeciality_returnSpeciality_true() {
+    Stylist stylist = new Stylist("Sue", "sue82@gmail.com", "888-328-3232", "MTWThF", "long hair");
+    assertEquals("long hair", stylist.getSpeciality());
   }
 }
