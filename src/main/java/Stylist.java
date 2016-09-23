@@ -27,4 +27,8 @@ public class Stylist {
   public String getEmail() {
     return email;
   }
+
+  public String getPhone() {
+    return phone;
+  }
 }
