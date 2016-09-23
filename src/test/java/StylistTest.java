@@ -2,6 +2,7 @@ import org.sql2o.*;
 import org.junit.*;
 import static org.junit.Assert.*;
 import java.util.Arrays;
+import java.util.ArrayList;
 
 public class StylistTest {
 
@@ -49,5 +50,22 @@ public class StylistTest {
     Stylist stylist = new Stylist("Sue", "sue82@gmail.com", "888-328-3232", "MTWThF", "long hair");
     Stylist stylistTwo = new Stylist("Sue", "sue82@gmail.com", "888-328-3232", "MTWThF", "long hair");
     assertTrue(stylist.equals(stylistTwo));
+  }
+
+  @Test
+  public void save_savesStylistToDatabase() {
+    Stylist stylist = new Stylist("Sue", "sue82@gmail.com", "888-328-3232", "MTWThF", "long hair");
+    stylist.save();
+    assertTrue(Stylist.all().get(0).equals(stylist));
+  }
+
+  @Test
+  public void all_returnsAllInstancesOfStylist() {
+    Stylist stylist = new Stylist("Sue", "sue82@gmail.com", "888-328-3232", "MTWThF", "long hair");
+    Stylist stylistTwo = new Stylist("Sue", "sue82@gmail.com", "888-328-3232", "MTWThF", "long hair");
+    stylist.save();
+    stylistTwo.save();
+    assertTrue(Stylist.all().get(0).equals(stylist));
+    assertTrue(Stylist.all().get(1).equals(stylistTwo));
   }
 }

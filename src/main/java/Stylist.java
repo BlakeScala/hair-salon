@@ -57,4 +57,25 @@ public class Stylist {
              this.getSpeciality().equals(newStylist.getSpeciality());
     }
   }
+
+  public static List<Stylist> all() {
+    String sql = "SELECT * FROM stylists";
+    try(Connection con = DB.sql2o.open()) {
+      return con.createQuery(sql).executeAndFetch(Stylist.class);
+    }
+  }
+
+  public void save() {
+    try (Connection con = DB.sql2o.open()) {
+      String sql = "INSERT INTO stylists(name, email, phone, availability, speciality) VALUES (:name, :email, :phone, :availability, :speciality)";
+      this.id = (int) con.createQuery(sql, true)
+        .addParameter("name", this.name)
+        .addParameter("email", this.email)
+        .addParameter("phone", this.phone)
+        .addParameter("availability", this.availability)
+        .addParameter("speciality", this.speciality)
+        .executeUpdate()
+        .getKey();
+    }
+  }
 }
