@@ -8,13 +8,13 @@ public class Client {
   private String name;
   private String phone;
   private String email;
-  private int stylistId;
+  private int stylist_id;
 
-  public Client(String name, String phone, String email, int stylistId) {
+  public Client(String name, String phone, String email, int stylist_id) {
     this.name = name;
     this.phone = phone;
     this.email = email;
-    this.stylistId = stylistId;
+    this.stylist_id = stylist_id;
   }
 
   public String getName() {
@@ -29,8 +29,8 @@ public class Client {
     return email;
   }
 
-  public int getStylistId() {
-    return stylistId;
+  public int getStylist_id() {
+    return stylist_id;
   }
 
   @Override
@@ -42,7 +42,27 @@ public class Client {
       return this.getName().equals(newClient.getName()) &&
              this.getEmail().equals(newClient.getEmail()) &&
              this.getPhone().equals(newClient.getPhone()) &&
-             this.getStylistId() == newClient.getStylistId();
+             this.getStylist_id() == newClient.getStylist_id();
+    }
+  }
+
+  public static List<Client> all() {
+    String sql = "SELECT * FROM clients";
+    try(Connection con = DB.sql2o.open()) {
+      return con.createQuery(sql).executeAndFetch(Client.class);
+    }
+  }
+
+  public void save() {
+    try(Connection con = DB.sql2o.open()){
+      String sql = "INSERT INTO clients(name, email, phone, stylist_id) VALUES (:name, :email, :phone, :stylist_id)";
+      this.id = (int) con.createQuery(sql, true)
+        .addParameter("name", this.name)
+        .addParameter("email", this.email)
+        .addParameter("phone", this.phone)
+        .addParameter("stylist_id", this.stylist_id)
+        .executeUpdate()
+        .getKey();
     }
   }
 }

@@ -34,9 +34,9 @@ public class ClientTest {
   }
 
   @Test
-  public void getStylistId_returnsStylistId_true() {
+  public void getStylist_id_returnsStylist_id_true() {
     Client client = new Client("Cindy", "878-484-2947", "cindyt@gmail.com", 1);
-    assertEquals(client.getStylistId(), 1);
+    assertEquals(client.getStylist_id(), 1);
   }
 
   @Test
@@ -44,5 +44,22 @@ public class ClientTest {
     Client client = new Client("Cindy", "878-484-2947", "cindyt@gmail.com", 1);
     Client clientTwo = new Client("Cindy", "878-484-2947", "cindyt@gmail.com", 1);
     assertTrue(client.equals(clientTwo));
+  }
+
+  @Test
+  public void all_returnsAllInstancesOfClient() {
+    Client client = new Client("Cindy", "878-484-2947", "cindyt@gmail.com", 1);
+    Client clientTwo = new Client("Billy", "878-224-9237", "billy@gmail.com", 1);
+    client.save();
+    clientTwo.save();
+    assertTrue(Client.all().get(0).equals(client));
+    assertTrue(Client.all().get(1).equals(clientTwo));
+  }
+
+  @Test
+  public void save_savesClientToDatabase() {
+    Client client = new Client("Cindy", "878-484-2947", "cindyt@gmail.com", 1);
+    client.save();
+    assertTrue(Client.all().get(0).equals(client));
   }
 }
