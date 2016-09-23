@@ -32,4 +32,10 @@ public class ClientTest {
     Client client = new Client("Cindy", "878-484-2947", "cindyt@gmail.com", 1);
     assertEquals(client.getPhone(), "878-484-2947");
   }
+
+  @Test
+  public void getStylistId_returnsStylistId_true() {
+    Client client = new Client("Cindy", "878-484-2947", "cindyt@gmail.com", 1);
+    assertEquals(client.getStylistId(), 1);
+  }
 }

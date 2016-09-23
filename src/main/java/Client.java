@@ -28,4 +28,8 @@ public class Client {
   public String getEmail() {
     return email;
   }
+
+  public int getStylistId() {
+    return stylistId;
+  }
 }
