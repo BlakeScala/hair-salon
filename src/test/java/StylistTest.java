@@ -68,4 +68,11 @@ public class StylistTest {
     assertTrue(Stylist.all().get(0).equals(stylist));
     assertTrue(Stylist.all().get(1).equals(stylistTwo));
   }
+
+  @Test
+  public void getId_returnsCorrectId() {
+    Stylist stylist = new Stylist("Sue", "sue82@gmail.com", "888-328-3232", "MTWThF", "long hair");
+    stylist.save();
+    assertTrue(stylist.getId() > 0);
+  }
 }
