@@ -82,4 +82,13 @@ public class ClientTest {
     clientTwo.update("Billy", "878-224-9237", "billywilliams@gmail.com", 2, clientTwo.getId());
     assertEquals(Client.find(clientTwo.getId()).getEmail(),  "billywilliams@gmail.com");
   }
+
+  @Test
+  public void delete_deletesClient() {
+    Client client = new Client("Cindy", "878-484-2947", "cindyt@gmail.com", 1);
+    client.save();
+    int clientId = client.getId();
+    client.delete(clientId);
+    assertEquals(null, Client.find(clientId));
+  }
 }
