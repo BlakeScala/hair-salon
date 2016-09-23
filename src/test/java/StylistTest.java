@@ -104,4 +104,12 @@ public class StylistTest {
     stylist.update("Sue", "sue82@gmail.com", "555-555-3232", "MTWThFS", "long hair", stylist.getId());
     assertEquals(Stylist.find(stylist.getId()).getPhone(), "555-555-3232");
   }
+
+  @Test
+  public void delete_deletesStylist() {
+    Stylist stylist = new Stylist("Sue", "sue82@gmail.com", "888-328-3232", "MTWThF", "long hair");
+    stylist.save();
+    stylist.delete(stylist.getId());
+    assertEquals(null, Stylist.find(stylist.getId()));
+  }
 }
