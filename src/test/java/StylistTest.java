@@ -31,4 +31,10 @@ public class StylistTest {
     Stylist stylist = new Stylist("Sue", "sue82@gmail.com", "888-328-3232", "MTWThF", "long hair");
     assertEquals("888-328-3232", stylist.getPhone());
   }
+
+  @Test
+  public void getAvailability_returnsAva_true() {
+    Stylist stylist = new Stylist("Sue", "sue82@gmail.com", "888-328-3232", "MTWThF", "long hair");
+    assertEquals("MTWThF", stylist.getAvailability());
+  }
 }

@@ -31,4 +31,8 @@ public class Stylist {
   public String getPhone() {
     return phone;
   }
+
+  public String getAvailability() {
+    return availability;
+  }
 }
