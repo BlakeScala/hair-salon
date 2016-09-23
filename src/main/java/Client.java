@@ -16,4 +16,8 @@ public class Client {
     this.email = email;
     this.stylistId = stylistId;
   }
+
+  public String getName() {
+    return name;
+  }
 }
