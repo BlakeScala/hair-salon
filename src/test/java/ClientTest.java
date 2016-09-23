@@ -20,4 +20,10 @@ public class ClientTest {
     Client client = new Client("Cindy", "878-484-2947", "cindyt@gmail.com", 1);
     assertEquals(client.getName(), "Cindy");
   }
+
+  @Test
+  public void getEmail_returnsEmail_true() {
+    Client client = new Client("Cindy", "878-484-2947", "cindyt@gmail.com", 1);
+    assertEquals(client.getEmail(), "cindyt@gmail.com");
+  }
 }
