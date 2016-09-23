@@ -48,6 +48,6 @@ public class StylistTest {
   public void equals_returnsTrueIfAttributesAreTheSame() {
     Stylist stylist = new Stylist("Sue", "sue82@gmail.com", "888-328-3232", "MTWThF", "long hair");
     Stylist stylistTwo = new Stylist("Sue", "sue82@gmail.com", "888-328-3232", "MTWThF", "long hair");
-    assertTrue(stylist.equals(stylistTwo()));
+    assertTrue(stylist.equals(stylistTwo));
   }
 }
