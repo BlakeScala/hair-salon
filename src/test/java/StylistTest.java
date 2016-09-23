@@ -75,4 +75,13 @@ public class StylistTest {
     stylist.save();
     assertTrue(stylist.getId() > 0);
   }
+
+  @Test
+  public void find_returnsObjectWithSameId() {
+    Stylist stylist = new Stylist("Sue", "sue82@gmail.com", "888-328-3232", "MTWThF", "long hair");
+    Stylist stylistTwo = new Stylist("Sue", "sue82@gmail.com", "888-328-3232", "MTWThF", "long hair");
+    stylist.save();
+    stylistTwo.save();
+    assertTrue(Stylist.find(stylistTwo.getId()).equals(stylistTwo));
+  }
 }
