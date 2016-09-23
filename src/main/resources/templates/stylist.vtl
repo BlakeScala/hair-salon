@@ -1,0 +1,31 @@
+<div class="jumbotron">
+  <h1>Hair Salon Handler</h1>
+  <p>Keep your stylists and clients organized!</p>
+  
+  <form action="/">
+    <button type="submit" class="btn">Home</button>
+  </form>
+
+  <form action="/stylist/$stylist.getId()/delete">
+    <button type="submit" class="btn">Delete Stylist</button>
+  <form>
+
+  <form action="/stylist/$stylist.getId()/update">
+    <button type="submit" class="btn">Update Info</button>
+  </form>
+
+  <form action="/stylist/$stylist.getId()/add-client">
+    <button type="submit" class="btn">Add Client</button>
+  </form>
+</div>
+
+<div class="stylist-title">
+  <h1 id="stylist-title">$stylist.getName()</h1>
+  <p>Phone: $stylist.getPhone() <br>Email: $stylist.getEmail() <br>Availability: $stylist.getAvailability() <br> Speciality: $stylist.getSpeciality()</p>
+</div>
+
+#foreach ($client in $clients)
+  <div class = "client-div">
+    <h3><a href="stylist/$stylist.getId()/client/$client.getId()">$client.getName()</a></h3>
+  </div>
+#end

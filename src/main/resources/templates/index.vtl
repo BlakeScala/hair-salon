@@ -8,7 +8,7 @@
 <h3>Your Stylists</h3>
 #foreach ($stylist in $stylists)
   <div class="stylist-div">
-    <h3>$stylist.getName()</h3>
+    <h3><a href="/stylist/$stylist.getId()">$stylist.getName()</a></h3>
     <p>Phone: $stylist.getPhone() <br>Email: $stylist.getEmail() <br>Availability: $stylist.getAvailability() <br> Speciality: $stylist.getSpeciality()</p>
   </div>
 #end
